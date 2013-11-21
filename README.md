@@ -15,35 +15,10 @@ Before you can get aar you should checkout [facebook-android-sdk](https://github
 
 When build is finished aar file will be located in `build/libs`.
 
-Maven artifact
+Maven artifact in local repo
 ======================
-For a lazy people (such as I) there's a maven repository with already built facebook artifact located at http://mente.github.io/facebook-api-android-aar . `build.gradle` example:
-```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-    }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:+'
-    }
-}
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-    maven {
-        url "http://mente.github.io/facebook-api-android-aar"
-    }
-}
-
-apply plugin: 'android'
-dependencies {
-    compile 'com.facebook:facebook-android-sdk:+@aar'
-    //your other dependencies
-}
-
-android {
-  //android build setup
-}
+```bash
+  $ ./gradlew build uploadArchives
 ```
+
