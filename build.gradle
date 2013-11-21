@@ -9,6 +9,11 @@ buildscript {
 }
 
 apply plugin: 'android-library'
+apply plugin: 'maven'
+
+version '0.1'
+group 'com.facebook.android'
+
 
 dependencies {
     compile 'com.android.support:support-v4:13.0.0'
@@ -29,4 +34,13 @@ android {
 
 task wrapper(type: Wrapper) {
   gradle = "1.6"
+}
+
+android.libraryVariants
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:///Users/akira/.m2/repository")
+        }
+    }
 }
